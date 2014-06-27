@@ -1,6 +1,23 @@
 var fs = require('fs');
 var path = require('path');
 
+var hspRelativeToAbsolute = function(pathToConvert) {
+    return path.normalize(__dirname + '/../../node_modules/hashspace' + pathToConvert);
+};
+
+var createPattern = function(path) {
+    return {pattern: hspRelativeToAbsolute(path), included: true, served: true, watched: false};
+};
+
+var initHashSpace = function(config) {
+    //add #space files to the karma config
+    config.files.push(createPattern('/hsp/*.js'));
+    config.files.push(createPattern('/hsp/rt/**/*.js'));
+    config.files.push(createPattern('/hsp/gestures/**/*.js'));
+    config.files.push(createPattern('/hsp/utils/eventgenerator.js'));
+    config.files.push(createPattern('/hsp/utils/type.js'));
+};
+
 var createHspCompilePreprocessor = function (args, config, logger, helper) {
 
     // Try to look up compiler from the local installation path in order to use the source
@@ -53,6 +70,7 @@ var createHspTranspilePreprocessor = function (args, config, logger, helper) {
 
 // PUBLISH DI MODULE
 module.exports = {
+    'framework:hsp': ['factory', initHashSpace],
     'preprocessor:hsp-compile': ['factory', createHspCompilePreprocessor],
     'preprocessor:hsp-transpile': ['factory', createHspTranspilePreprocessor]
 };

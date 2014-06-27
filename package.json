@@ -1,6 +1,6 @@
 {
   "name": "karma-hashspace",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "#space preprocessors for karma runner",
   "main": "index.js",
   "repository": {
