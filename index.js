@@ -70,7 +70,7 @@ var createHspTranspilePreprocessor = function (args, config, logger, helper) {
 
 // PUBLISH DI MODULE
 module.exports = {
-    'framework:hsp': ['factory', initHashSpace],
-    'preprocessor:hsp-compile': ['factory', createHspCompilePreprocessor],
-    'preprocessor:hsp-transpile': ['factory', createHspTranspilePreprocessor]
+    'framework:hashspace': ['factory', initHashSpace],
+    'preprocessor:hashspace-compile': ['factory', createHspCompilePreprocessor],
+    'preprocessor:hashspace-transpile': ['factory', createHspTranspilePreprocessor]
 };
