@@ -14,6 +14,7 @@ var initHashSpace = function(config) {
     config.files.push(createPattern('/hsp/*.js'));
     config.files.push(createPattern('/hsp/rt/**/*.js'));
     config.files.push(createPattern('/hsp/gestures/**/*.js'));
+    config.files.push(createPattern('/hsp/expressions/**/*.js'));
     config.files.push(createPattern('/hsp/utils/eventgenerator.js'));
     config.files.push(createPattern('/hsp/utils/type.js'));
 };
